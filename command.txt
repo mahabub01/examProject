@@ -1,0 +1,36 @@
+CREATE TABLE course(
+id int AUTO_INCREMENT primary KEY,
+  name varchar(200),
+    coursecode varchar(200),
+    subcourse int,
+    FOREIGN KEY(subcourse) REFERENCES course(id)
+)
+
+
+
+CREATE TABLE courseDetails(
+id int PRIMARY KEY AUTO_INCREMENT,
+fullname varchar(300),
+details varchar(5000),
+coursecode varchar(200) UNIQUE KEY
+)
+
+
+create TABLE comments(
+    id int AUTO_INCREMENT PRIMARY key,
+    comment varchar(5000),
+    username varchar(200),
+    questionid int,
+    reply int,
+    FOREIGN KEY(questionid) REFERENCES questions(id))
+
+
+
+    CREATE TABLE likes(
+id int AUTO_INCREMENT PRIMARY KEY,
+commentid int,
+questionsid int,
+dates datetime,
+    FOREIGN KEY(commentid) REFERENCES comments(id),
+    FOREIGN KEY(questionsid) REFERENCES questions(id)
+)
